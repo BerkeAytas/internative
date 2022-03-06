@@ -9,12 +9,11 @@ class Favorites extends StatefulWidget {
 }
 
 class _FavoritesState extends State<Favorites> {
+  String appBarText = "My Favorites";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("My Favorites"),
-      ),
+      appBar: appBarMethod(),
       body: GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -44,6 +43,12 @@ class _FavoritesState extends State<Favorites> {
           ),
         ),
       ),
+    );
+  }
+
+  AppBar appBarMethod() {
+    return AppBar(
+      title: Text(appBarText),
     );
   }
 }

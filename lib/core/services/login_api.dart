@@ -1,36 +1,36 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Api {
   Api.instance();
   static final Api _api = Api.instance();
   factory Api() => _api;
 
-  final _baseURL = "http://test20.internative.net/swagger/";
+  final _baseURL = "http://test20.internative.net/";
 
   Future<bool> login(Map<String, dynamic> body) async {
-    //showProgressDialog("Giriş Yapılıyor...");
     Uri url = Uri.parse(_baseURL + "Login/SignIn");
-    print(url);
-    http.Response response = await http.post(url, body: body);
-    var jsonResponse = convert.jsonDecode(response.body);
-    if (jsonResponse != 0) {
-      print(jsonResponse);
-      return true;
-    }
-    /*http.Response response = await http.get(url);
-    var jsonResponse = convert.jsonDecode(response.body);
-    //closeProgressDialog();
+    http.Response response =
+        await http.post(url, headers: {"Content-Type": "application/json"}, body: json.encode(body));
 
-    if (jsonResponse.toString() != "[]") {
-      print(jsonResponse);
-      //final storageController = StorageController();
-      //storageController.saveLogin(jsonResponse);
+    var jsonResponse = convert.jsonDecode(response.body);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('Token', jsonResponse["Data"]["Token"]);
+    return jsonResponse["HasError"] ? false : true;
+  }
 
-      //User.fromJson(jsonResponse[0]);
-      return true;
-    }*/
-    return false;
+  Future<bool> signUp(Map<String, dynamic> body) async {
+    Uri url = Uri.parse(_baseURL + "Login/SignUp");
+    http.Response response =
+        await http.post(url, headers: {"Content-Type": "application/json"}, body: json.encode(body));
+
+    var jsonResponse = convert.jsonDecode(response.body);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('Token', jsonResponse["Data"]["Token"]);
+    return jsonResponse["HasError"] ? false : true;
   }
 }

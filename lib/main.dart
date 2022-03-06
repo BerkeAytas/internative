@@ -92,22 +92,6 @@ class CustomNavBarWidget extends StatelessWidget {
               child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
             ),
           ),
-          /*Padding(
-            padding: const EdgeInsets.only(top: 5.0),
-            child: Material(
-              type: MaterialType.transparency,
-              child: FittedBox(
-                  child: Text(
-                item.title,
-                style: TextStyle(
-                    color: isSelected
-                        ? (item.activeColorSecondary == null ? item.activeColorPrimary : item.activeColorSecondary)
-                        : item.inactiveColorPrimary,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12.0),
-              )),
-            ),
-          )*/
         ],
       ),
     );
