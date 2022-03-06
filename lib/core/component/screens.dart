@@ -29,12 +29,12 @@ class MainScreen extends StatelessWidget {
                   onPressed: () {
                     pushNewScreenWithRouteSettings(
                       context,
-                      settings: RouteSettings(name: '/home'),
-                      screen: MainScreen2(),
+                      settings: const RouteSettings(name: '/home'),
+                      screen: const MainScreen2(),
                       pageTransitionAnimation: PageTransitionAnimation.scaleRotate,
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     "Go to Second Screen ->",
                     style: TextStyle(color: Colors.white),
                   ),
@@ -52,7 +52,7 @@ class MainScreen extends StatelessWidget {
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text(
+                          child: const Text(
                             "Exit",
                             style: TextStyle(color: Colors.white),
                           ),
@@ -60,7 +60,7 @@ class MainScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     "Push bottom sheet on TOP of Nav Bar",
                     style: TextStyle(color: Colors.white),
                   ),
@@ -71,13 +71,13 @@ class MainScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(this.menuScreenContext).pop();
                   },
-                  child: Text(
+                  child: const Text(
                     "<- Main Menu",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60.0,
               ),
             ],
@@ -102,9 +102,9 @@ class MainScreen2 extends StatelessWidget {
             children: <Widget>[
               ElevatedButton(
                 onPressed: () {
-                  pushNewScreen(context, screen: MainScreen3());
+                  pushNewScreen(context, screen: const MainScreen3());
                 },
-                child: Text(
+                child: const Text(
                   "Go to Third Screen",
                   style: TextStyle(color: Colors.white),
                 ),
@@ -113,7 +113,7 @@ class MainScreen2 extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text(
+                child: const Text(
                   "Go Back to First Screen",
                   style: TextStyle(color: Colors.white),
                 ),
@@ -139,7 +139,7 @@ class MainScreen3 extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text(
+            child: const Text(
               "Go Back to Second Screen",
               style: TextStyle(color: Colors.white),
             ),

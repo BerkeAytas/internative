@@ -23,66 +23,67 @@ class _ProfileState extends BaseState<Profile> {
         child: Column(
           children: [
             ElevatedButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    backgroundColor: Colors.white,
-                    useRootNavigator: true,
-                    builder: (context) => Column(
-                      children: [
-                        Container(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: dynamicWidth(0.45),
-                              height: dynamicHeight(0.065),
-                              child: ElevatedButtonDesign(
-                                context,
-                                "Select",
-                                () {
-                                  showDialog<String>(
-                                    context: context,
-                                    builder: (BuildContext context) => AlertDialog(
-                                      actions: [
-                                        Column(
-                                          children: [
-                                            const Text('Select a Picture'),
-                                            SizedBox(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.white,
+                  useRootNavigator: true,
+                  builder: (context) => Column(
+                    children: [
+                      Container(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: dynamicWidth(0.45),
+                            height: dynamicHeight(0.065),
+                            child: ElevatedButtonDesign(
+                              context,
+                              "Select",
+                              () {
+                                showDialog<String>(
+                                  context: context,
+                                  builder: (BuildContext context) => AlertDialog(
+                                    actions: [
+                                      Column(
+                                        children: [
+                                          const Text('Select a Picture'),
+                                          SizedBox(
+                                            height: dynamicHeight(0.065),
+                                            child: ElevatedButtonDesign(context, "Camera", () {}),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(top: 32, bottom: 12),
+                                            child: SizedBox(
+                                              //padding: const EdgeInsets.only(top: 32, bottom: 12),
                                               height: dynamicHeight(0.065),
-                                              child: ElevatedButtonDesign(context, "Camera", () {}),
+                                              child: OutlinedButtonDesign(context, "Gallery", () {}),
                                             ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(top: 32, bottom: 12),
-                                              child: SizedBox(
-                                                //padding: const EdgeInsets.only(top: 32, bottom: 12),
-                                                height: dynamicHeight(0.065),
-                                                child: OutlinedButtonDesign(context, "Gallery", () {}),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                             ),
-                            SizedBox(
-                              width: dynamicWidth(0.05),
-                            ),
-                            SizedBox(
-                              width: dynamicWidth(0.45),
-                              height: dynamicHeight(0.065),
-                              child: OutlinedButtonDesign(context, "Remove", () {}),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                child: Text("img")),
+                          ),
+                          SizedBox(
+                            width: dynamicWidth(0.05),
+                          ),
+                          SizedBox(
+                            width: dynamicWidth(0.45),
+                            height: dynamicHeight(0.065),
+                            child: OutlinedButtonDesign(context, "Remove", () {}),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+              child: const Text("img"),
+            ),
             Container(
               color: Colors.grey,
               height: 200,

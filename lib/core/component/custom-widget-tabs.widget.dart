@@ -6,8 +6,6 @@ import 'package:internative/view/homepage/homepage.dart';
 import 'package:internative/view/profile/profile_view.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
-import 'screens.dart';
-
 class CustomWidgetExample extends StatefulWidget {
   final BuildContext menuScreenContext;
   const CustomWidgetExample({Key? key, required this.menuScreenContext}) : super(key: key);

@@ -15,11 +15,11 @@ class _HomePageState extends BaseState<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
+        leading: const Icon(
           Icons.search,
           color: Colors.black,
         ),
-        title: Text("Home"),
+        title: const Text("Home"),
       ),
       body: Column(
         children: [
@@ -31,13 +31,14 @@ class _HomePageState extends BaseState<HomePage> {
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       height: 100,
                       width: 200,
                       color: primaryColor,
                     ),
-                    Text(
+                    const Text(
                       "data",
                     ),
                   ],
@@ -56,14 +57,21 @@ class _HomePageState extends BaseState<HomePage> {
                 childAspectRatio: 0.8,
               ),
               itemBuilder: (context, index) => Container(
-                color: Colors.green,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Row(
-                      children: [
-                        Text("data"),
-                      ],
+                    Container(
+                      height: 50,
+                      color: whiteColor.withOpacity(0.5),
+                      child: Row(
+                        children: const [
+                          Text("data"),
+                        ],
+                      ),
                     ),
                   ],
                 ),

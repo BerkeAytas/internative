@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:internative/core/shared/costum_shared.dart';
 
 class OutlinedButtonDesign extends OutlinedButton {
   OutlinedButtonDesign(BuildContext context, label, func, {Key? key})

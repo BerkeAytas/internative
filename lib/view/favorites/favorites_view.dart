@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internative/core/shared/costum_shared.dart';
 
 class Favorites extends StatefulWidget {
   const Favorites({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class _FavoritesState extends State<Favorites> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Favorites"),
+        title: const Text("My Favorites"),
       ),
       body: GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -23,14 +24,21 @@ class _FavoritesState extends State<Favorites> {
           childAspectRatio: 0.8,
         ),
         itemBuilder: (context, index) => Container(
-          color: Colors.green,
+          decoration: BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.circular(20),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Row(
-                children: [
-                  Text("data"),
-                ],
+              Container(
+                height: 50,
+                color: whiteColor.withOpacity(0.5),
+                child: Row(
+                  children: const [
+                    Text("data"),
+                  ],
+                ),
               ),
             ],
           ),
