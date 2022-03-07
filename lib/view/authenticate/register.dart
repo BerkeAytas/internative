@@ -32,50 +32,52 @@ class _RegisterState extends BaseState<Register> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-        child: Column(
-          children: [
-            logoMethod(),
-            methodInput(email, "Email", Icons.mail, null, false),
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: methodInput(password, "Password", Icons.lock, Icons.remove_red_eye, false),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: methodInput(rePassword, "Re-Password", Icons.lock, Icons.remove_red_eye, false),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32, bottom: 12),
-              child: SizedBox(
-                width: double.infinity,
-                height: dynamicHeight(0.065),
-                child: ElevatedButtonDesign(
-                  context,
-                  registerbtnText,
-                  () async {
-                    Api api = Api();
-                    var result = await api.signUp({
-                      "Email": email.text,
-                      "Password": password.text,
-                      "PasswordRetry": rePassword.text,
-                    });
-                    if (result == true) {
-                      pushNewScreen(
-                        context,
-                        screen: CustomWidgetExample(
-                          menuScreenContext: context,
-                        ),
-                      );
-                    } else {
-                      // buraya bar çıkacak
-                      print("hatta");
-                    }
-                  },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              logoMethod(),
+              methodInput(email, "Email", Icons.mail, null, false),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: methodInput(password, "Password", Icons.lock, Icons.remove_red_eye, false),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: methodInput(rePassword, "Re-Password", Icons.lock, Icons.remove_red_eye, false),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 12),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: dynamicHeight(0.065),
+                  child: ElevatedButtonDesign(
+                    context,
+                    registerbtnText,
+                    () async {
+                      Api api = Api();
+                      var result = await api.signUp({
+                        "Email": email.text,
+                        "Password": password.text,
+                        "PasswordRetry": rePassword.text,
+                      });
+                      if (result == true) {
+                        pushNewScreen(
+                          context,
+                          screen: CustomWidgetExample(
+                            menuScreenContext: context,
+                          ),
+                        );
+                      } else {
+                        // buraya bar çıkacak
+                        print("hatta");
+                      }
+                    },
+                  ),
                 ),
               ),
-            ),
-            loginBtnMethod(context),
-          ],
+              loginBtnMethod(context),
+            ],
+          ),
         ),
       ),
     );
